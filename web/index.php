@@ -19,6 +19,10 @@
  *
  */
 	define('ENVIRONMENT', 'development');
+
+
+	define('PROJECT_NAME', 'ci-boilerplate');
+	define('PROJECT_PATH', '/opt/local/dev/'.PROJECT_NAME);
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -34,11 +38,18 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
 			error_reporting(E_ALL);
+			$system_path = PROJECT_PATH."/ci/current";
+			$application_folder = PROJECT_PATH."/app";
 		break;
 	
 		case 'testing':
+			exit('Testing environment is not set correctly.');
+		break;
+
 		case 'production':
 			error_reporting(0);
+			$system_path = PROJECT_PATH."/ci/current";
+			$application_folder = PROJECT_PATH."/app";
 		break;
 
 		default:
@@ -56,7 +67,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'system';
+	// Set above!!
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +83,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'application';
+	// Set above!!
 
 /*
  * --------------------------------------------------------------------
